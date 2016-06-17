@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPeriodicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_idPeriodico}" for="idPeriodico" />
+                    <h:inputText id="idPeriodico" value="#{periodicosController.selected.idPeriodico}" title="#{bundle.EditPeriodicosTitle_idPeriodico}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_idPeriodico}"/>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_issn}" for="issn" />
+                    <h:inputText id="issn" value="#{periodicosController.selected.issn}" title="#{bundle.EditPeriodicosTitle_issn}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_issn}"/>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_titulo}" for="titulo" />
+                    <h:inputText id="titulo" value="#{periodicosController.selected.titulo}" title="#{bundle.EditPeriodicosTitle_titulo}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_titulo}"/>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_pais}" for="pais" />
+                    <h:inputText id="pais" value="#{periodicosController.selected.pais}" title="#{bundle.EditPeriodicosTitle_pais}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_pais}"/>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{periodicosController.selected.tipo}" title="#{bundle.EditPeriodicosTitle_tipo}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_inicioprazo}" for="inicioprazo" />
+                    <h:inputText id="inicioprazo" value="#{periodicosController.selected.inicioprazo}" title="#{bundle.EditPeriodicosTitle_inicioprazo}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_inicioprazo}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_fimprazo}" for="fimprazo" />
+                    <h:inputText id="fimprazo" value="#{periodicosController.selected.fimprazo}" title="#{bundle.EditPeriodicosTitle_fimprazo}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_fimprazo}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{periodicosController.selected.status}" title="#{bundle.EditPeriodicosTitle_status}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_idArea}" for="idArea" />
+                    <h:selectOneMenu id="idArea" value="#{periodicosController.selected.idArea}" title="#{bundle.EditPeriodicosTitle_idArea}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_idArea}">
+                        <f:selectItems value="#{areaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_idClassificacao}" for="idClassificacao" />
+                    <h:selectOneMenu id="idClassificacao" value="#{periodicosController.selected.idClassificacao}" title="#{bundle.EditPeriodicosTitle_idClassificacao}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_idClassificacao}">
+                        <f:selectItems value="#{classificacaoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditPeriodicosLabel_idPeso}" for="idPeso" />
+                    <h:selectOneMenu id="idPeso" value="#{periodicosController.selected.idPeso}" title="#{bundle.EditPeriodicosTitle_idPeso}" required="true" requiredMessage="#{bundle.EditPeriodicosRequiredMessage_idPeso}">
+                        <f:selectItems value="#{pesoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{periodicosController.update}" value="#{bundle.EditPeriodicosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPeriodicosViewLink}"/>
+                <br />
+                <h:commandLink action="#{periodicosController.prepareList}" value="#{bundle.EditPeriodicosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPeriodicosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

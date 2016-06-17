@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePeriodicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <!-- required="true" requiredMessage="{bundle.CreatePeriodicosRequiredMessage_idPeriodico}"
+            <h:outputLabel value="{bundle.CreatePeriodicosLabel_idPeriodico}" for="idPeriodico" />
+                    
+                    <h:inputText id="idPeriodico" value="{periodicosController.selected.idPeriodico}" title="{bundle.CreatePeriodicosTitle_idPeriodico}" />
+            -->
+            
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_issn}" for="issn" />
+                    <h:inputText id="issn" value="#{periodicosController.selected.issn}" title="#{bundle.CreatePeriodicosTitle_issn}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_issn}"/>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_titulo}" for="titulo" />
+                    <h:inputText id="titulo" value="#{periodicosController.selected.titulo}" title="#{bundle.CreatePeriodicosTitle_titulo}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_titulo}"/>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_pais}" for="pais" />
+                    <h:inputText id="pais" value="#{periodicosController.selected.pais}" title="#{bundle.CreatePeriodicosTitle_pais}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_pais}"/>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_tipo}" for="tipo" />
+                    <h:inputText id="tipo" value="#{periodicosController.selected.tipo}" title="#{bundle.CreatePeriodicosTitle_tipo}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_tipo}"/>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_inicioprazo}" for="inicioprazo" />
+                    <h:inputText id="inicioprazo" value="#{periodicosController.selected.inicioprazo}" title="#{bundle.CreatePeriodicosTitle_inicioprazo}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_inicioprazo}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_fimprazo}" for="fimprazo" />
+                    <h:inputText id="fimprazo" value="#{periodicosController.selected.fimprazo}" title="#{bundle.CreatePeriodicosTitle_fimprazo}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_fimprazo}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{periodicosController.selected.status}" title="#{bundle.CreatePeriodicosTitle_status}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_status}"/>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_idArea}" for="idArea" />
+                    <h:selectOneMenu id="idArea" value="#{periodicosController.selected.idArea}" title="#{bundle.CreatePeriodicosTitle_idArea}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_idArea}">
+                        <f:selectItems value="#{areaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_idClassificacao}" for="idClassificacao" />
+                    <h:selectOneMenu id="idClassificacao" value="#{periodicosController.selected.idClassificacao}" title="#{bundle.CreatePeriodicosTitle_idClassificacao}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_idClassificacao}">
+                        <f:selectItems value="#{classificacaoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePeriodicosLabel_idPeso}" for="idPeso" />
+                    <h:selectOneMenu id="idPeso" value="#{periodicosController.selected.idPeso}" title="#{bundle.CreatePeriodicosTitle_idPeso}" required="true" requiredMessage="#{bundle.CreatePeriodicosRequiredMessage_idPeso}">
+                        <f:selectItems value="#{pesoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{periodicosController.create}" value="#{bundle.CreatePeriodicosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{periodicosController.prepareList}" value="#{bundle.CreatePeriodicosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePeriodicosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="private/classificacao/Edit.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="private/periodicos/List.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="private/classificacao/View.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="private/periodicos/View.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="private/classificacao/List.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="private/favorit/List.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="private/periodicos/Create.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="formLogin.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="template.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="private/favorit/Edit.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="private/favorit/View.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="private/classificacao/Create.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="private/peso/View.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="private/usuario/View.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="index.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="private/peso/Create.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="private/sysdiagrams/Create.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="private/area/Edit.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="private/usuario/List.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="private/area/View.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="private/usuario/Create.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="private/sysdiagrams/List.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="private/periodicos/Busca.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="private/peso/List.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="private/periodicos/Edit.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="private/usuario/Edit.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="private/sysdiagrams/Edit.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="private/sysdiagrams/View.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="private/favorit/Create.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="private/peso/Edit.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="private/area/Create.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="private/area/List.xhtml" x="650" y="750" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Periódicos"></h:outputText>
+        </ui:define>
+        
+        <ui:define name="body">
+            <div id="main" class="container-fluid" style="margin-top: 3em">
+                <div id="top" class="row" style="margin-bottom: 2em">
+                    <f:view>
+                        <h:form>
+                            <h:panelGrid columns="2" style="margin-bottom: 1em;">
+
+                                <h:outputLabel value="Área de Avaliação*" for="idArea" style="color:red;margin-right:1em" />
+                                <h:selectOneMenu style="margin-bottom: 1em" class="form-control" id="idArea" value="#{buscaPeriodicosController.selected.idArea}" title="#{bundle.CreatePeriodicosTitle_idArea}" required="true" requiredMessage="O campo Área de Avaliação é obrigatório!">
+                                    <f:selectItems value="#{areaController.itemsAvailableSelectOne}"/>
+                                </h:selectOneMenu>
+
+
+                                <h:outputLabel value="Classificacao*" for="idClassificacao" style="color:red;" />
+                                <h:selectOneMenu style="margin-bottom: 1em" class="form-control" id="idClassificacao" value="#{buscaPeriodicosController.selected.idClassificacao}" title="#{bundle.CreatePeriodicosTitle_idClassificacao}" required="true" requiredMessage="O campo Classificação é obrigatório!">
+                                    <f:selectItems value="#{classificacaoController.itemsAvailableSelectOne}"/>
+                                </h:selectOneMenu>
+                                <h:outputLabel value="Peso*" for="idPeso" style="color:red;" />
+                                <h:selectOneMenu style="margin-bottom: 1em" class="form-control" id="idPeso" value="#{buscaPeriodicosController.selected.idPeso}" required="true" requiredMessage="O campo Peso é obrigatório!" title="Peso" >
+                                    <f:selectItems value="#{pesoController.itemsAvailableSelectOne}"/>
+                                </h:selectOneMenu>
+                                
+                                <h:outputLabel value="Titulo:" for="titulo" />
+                                <h:inputText style="margin-bottom: 1em" class="form-control" id="titulo" value="#{buscaPeriodicosController.titulo}" pt:placeholder="Titulo" />
+                                
+                                <h:outputLabel value="Issn:" for="issn" />
+                                <h:inputSecret class="form-control" id="issn" value="#{buscaPeriodicosController.issn}" pt:placeholder="Issn" />
+
+                            </h:panelGrid>
+                            <h:commandButton class="btn btn-primary" value="Pesquisar" action="#{buscaPeriodicosController.getBusca()}"/>
+                        </h:form>
+                    </f:view>
+                    <c:if test="#{buscaPeriodicosController.periodicos.size() == 0}">
+                        <hr />
+                        <span style="color: tomato"> Não existem dados cadastrados para a pesquisa realizada.</span> 
+                    </c:if>
+
+                    <c:if test="#{buscaPeriodicosController.periodicos.size() > 0}">
+                        <hr />
+                        <div id="list" class="row">
+
+                            <div class="table-responsive col-md-12 col-md-offset-0">
+                                <h:form styleClass="jsfcrud_list_form">
+                                    <h:panelGroup id="messagePanel" layout="block">
+                                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                                    </h:panelGroup>
+
+                                    <h:dataTable class="table table-striped" value="#{buscaPeriodicosController.periodicos}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Registro"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idPeriodico}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListPeriodicosTitle_issn}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.issn}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListPeriodicosTitle_titulo}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.titulo}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListPeriodicosTitle_pais}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.pais}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListPeriodicosTitle_tipo}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.tipo}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Prazo inicio"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.inicioprazo}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                            </h:outputText>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Prazo final"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.fimprazo}">
+                                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                            </h:outputText>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="#{bundle.ListPeriodicosTitle_status}"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.status}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Area"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idArea.descricao}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Classificacao"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idClassificacao.descricao}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Peso"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.idPeso.descricao}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Acoes"/>
+                                            </f:facet>
+                                            
+                                            <h:commandLink class="btn btn-success btn-xs" action="#{buscaPeriodicosController.createFavorito(item.idPeriodico)}" value="Favorito"/>
+                                        </h:column>
+
+                                    </h:dataTable>
+                                    
+                                    
+
+<!--                                    <br />
+                                    <h:commandLink action="{buscaPeriodicosController.prepareCreate}" value="{bundle.ListPeriodicosCreateLink}"/>
+                                    <br />
+                                    <br />
+                                    <h:link outcome="/index" value="{bundle.ListPeriodicosIndexLink}"/>-->
+                                </h:form>
+                            </div></div>
+                    </c:if>
+                </div> 
+            </div>
+            
+            
+            
+        </ui:define>
+    </ui:composition>
+
+</html> 

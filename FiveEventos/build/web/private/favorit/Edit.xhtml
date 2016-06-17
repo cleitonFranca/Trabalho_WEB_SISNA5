@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFavoritTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFavoritLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{favoritController.selected.idUsuario}" title="#{bundle.EditFavoritTitle_idUsuario}" required="true" requiredMessage="#{bundle.EditFavoritRequiredMessage_idUsuario}"/>
+                    <h:outputLabel value="#{bundle.EditFavoritLabel_idPeriodico}" for="idPeriodico" />
+                    <h:inputText id="idPeriodico" value="#{favoritController.selected.idPeriodico}" title="#{bundle.EditFavoritTitle_idPeriodico}" />
+                    <h:outputLabel value="#{bundle.EditFavoritLabel_idPeriodico2}" for="idPeriodico2" />
+                    <h:selectOneMenu id="idPeriodico2" value="#{favoritController.selected.idPeriodico2}" title="#{bundle.EditFavoritTitle_idPeriodico2}" >
+                        <f:selectItems value="#{periodicosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFavoritLabel_usuario}" for="usuario" />
+                    <h:selectOneMenu id="usuario" value="#{favoritController.selected.usuario}" title="#{bundle.EditFavoritTitle_usuario}" required="true" requiredMessage="#{bundle.EditFavoritRequiredMessage_usuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{favoritController.update}" value="#{bundle.EditFavoritSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFavoritViewLink}"/>
+                <br />
+                <h:commandLink action="#{favoritController.prepareList}" value="#{bundle.EditFavoritShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFavoritIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Favoritos"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPeriodicosEmpty}" rendered="#{periodicosController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{periodicosController.favoritos.size() > 0}">
+                   
+                    <h:dataTable class="table table-striped" rows="5" id="tabela" value="#{periodicosController.favoritos}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Registro"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPeriodico}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPeriodicosTitle_issn}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.issn}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPeriodicosTitle_titulo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.titulo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPeriodicosTitle_pais}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pais}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPeriodicosTitle_tipo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Prazo inicio"/>
+                            </f:facet>
+                            <h:outputText value="#{item.inicioprazo}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Prazo final"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fimprazo}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPeriodicosTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Area"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idArea.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Classificacao"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idClassificacao.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Peso"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPeso.descricao}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Acoes"/>
+                            </f:facet><!-- .removerFavorito(item.idPeriodico)-->
+                            <h:commandLink class="btn btn-danger btn-xs" action="#{favoritController.confirmacao(item.idPeriodico)}" value="Remover"/>
+                        </h:column>
+                    </h:dataTable>
+                   
+                </h:panelGroup>
+               
+            </h:form>
+        </ui:define>
+    </ui:composition>
+    
+</html>

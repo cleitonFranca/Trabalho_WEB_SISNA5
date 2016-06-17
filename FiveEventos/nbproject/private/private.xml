@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/models/Area.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/controllers/PeriodicosController.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/facade/FavoritFacade.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/web/private/usuario/Edit.xhtml</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/models/Favorit.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/facade/PeriodicosFacade.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/controllers/util/LoginFilter.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/web/index.xhtml</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/web/template.xhtml</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/controllers/LoginController.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/controllers/FavoritController.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/src/java/br/unp/five/controllers/BuscaPeriodicosController.java</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/web/private/periodicos/ListFavoritos.xhtml</file>
+            <file>file:/C:/Users/Cleiton/Documents/NetBeansProjects/FiveEventos/web/private/periodicos/Busca.xhtml</file>
+        </group>
+    </open-files>
+</project-private>

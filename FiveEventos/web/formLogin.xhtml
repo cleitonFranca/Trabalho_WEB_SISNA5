@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputScript library="js" name="jquery.js" /> 
+        <h:outputScript library="js" name="ie-emulation-modes-warning.js" />
+    </h:head>
+    <h:body>
+        <div class="container">
+            <h:form class="form-signin">
+<!--                <img src="resources/assets/img/logo_login.png" alt="SisFive" />-->
+                 <h:graphicImage library="img" name="logo_login.png" />
+                <h2 class="form-signin-heading">Identique-se</h2>
+                <h:messages id="messages" />
+                <h:panelGrid columns="1">
+
+                    <h:inputText style="margin-bottom: 0.6em;" class="form-control"  id="nome" value="#{loginController.nome}" pt:placeholder="Usuario" />
+
+
+                    <h:inputSecret class="form-control" id="senha" value="#{loginController.senha}" pt:placeholder="Senha" />
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="remember-me" /> Salvar
+                        </label>
+                    </div>
+                    
+                   
+                    <h:commandLink value="Novo" action="#{usuarioController.prepareCreateNew()}" /> 
+                      <br />
+
+                    <h:commandButton class="btn btn-lg btn-primary btn-block" value="Enviar" action="#{loginController.login()}" />
+         
+                </h:panelGrid>
+
+            </h:form>
+
+            <h:outputScript library="js" name="ie10-viewport-bug-workaround.js" />
+        </div>
+    </h:body>
+
+
+
+</html>

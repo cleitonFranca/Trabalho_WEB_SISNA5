@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPeriodicosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_idPeriodico}"/>
+                    <h:outputText value="#{periodicosController.selected.idPeriodico}" title="#{bundle.ViewPeriodicosTitle_idPeriodico}"/>
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_issn}"/>
+                    <h:outputText value="#{periodicosController.selected.issn}" title="#{bundle.ViewPeriodicosTitle_issn}"/>
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_titulo}"/>
+                    <h:outputText value="#{periodicosController.selected.titulo}" title="#{bundle.ViewPeriodicosTitle_titulo}"/>
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_pais}"/>
+                    <h:outputText value="#{periodicosController.selected.pais}" title="#{bundle.ViewPeriodicosTitle_pais}"/>
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_tipo}"/>
+                    <h:outputText value="#{periodicosController.selected.tipo}" title="#{bundle.ViewPeriodicosTitle_tipo}"/>
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_inicioprazo}"/>
+                    <h:outputText value="#{periodicosController.selected.inicioprazo}" title="#{bundle.ViewPeriodicosTitle_inicioprazo}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPeriodicosLabel_fimprazo}"/>
+                    <h:outputText value="#{periodicosController.selected.fimprazo}" title="#{bundle.ViewPeriodicosTitle_fimprazo}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="Status"/>
+                    <h:outputText value="#{periodicosController.selected.status}" title="#{bundle.ViewPeriodicosTitle_status}"/>
+                    <h:outputText value="Area"/>
+                    <h:outputText value="#{periodicosController.area}" title="#{bundle.ViewPeriodicosTitle_idArea}"/>
+                    <h:outputText value="Classificacao"/>
+                    <h:outputText value="#{periodicosController.classificacao}" title="#{bundle.ViewPeriodicosTitle_idClassificacao}"/>
+                    <h:outputText value="Peso"/>
+                    <h:outputText value="#{periodicosController.peso}" title="#{bundle.ViewPeriodicosTitle_idPeso}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{periodicosController.destroyAndView}" value="#{bundle.ViewPeriodicosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPeriodicosEditLink}"/>
+                <br />
+                <h:commandLink action="#{periodicosController.prepareCreate}" value="#{bundle.ViewPeriodicosCreateLink}" />
+                <br />
+                <h:commandLink action="#{periodicosController.prepareList}" value="#{bundle.ViewPeriodicosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPeriodicosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

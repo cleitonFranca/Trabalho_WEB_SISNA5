@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFavoritTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFavoritLabel_idUsuario}"/>
+                    <h:outputText value="#{favoritController.selected.idUsuario}" title="#{bundle.ViewFavoritTitle_idUsuario}"/>
+                    <h:outputText value="#{bundle.ViewFavoritLabel_idPeriodico}"/>
+                    <h:outputText value="#{favoritController.selected.idPeriodico}" title="#{bundle.ViewFavoritTitle_idPeriodico}"/>
+                    <h:outputText value="#{bundle.ViewFavoritLabel_idPeriodico2}"/>
+                    <h:outputText value="#{favoritController.selected.idPeriodico2}" title="#{bundle.ViewFavoritTitle_idPeriodico2}"/>
+                    <h:outputText value="#{bundle.ViewFavoritLabel_usuario}"/>
+                    <h:outputText value="#{favoritController.selected.usuario}" title="#{bundle.ViewFavoritTitle_usuario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{favoritController.destroyAndView}" value="#{bundle.ViewFavoritDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFavoritEditLink}"/>
+                <br />
+                <h:commandLink action="#{favoritController.prepareCreate}" value="#{bundle.ViewFavoritCreateLink}" />
+                <br />
+                <h:commandLink action="#{favoritController.prepareList}" value="#{bundle.ViewFavoritShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFavoritIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

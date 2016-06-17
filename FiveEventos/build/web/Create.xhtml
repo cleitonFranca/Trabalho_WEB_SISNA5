@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Cadastro Usuários"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form style="margin-top: 3em">
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel class="list-group" value="#{bundle.CreateUsuarioLabel_nome}" for="nome" />
+                    <h:inputText class="form-control" id="nome" value="#{usuarioController.selected.nome}" title="#{bundle.CreateUsuarioTitle_nome}" required="true" requiredMessage="O campo Nome é obrigatório!"/>
+                    <h:outputLabel class="list-group" value="#{bundle.CreateUsuarioLabel_login}" for="login" />
+                    <h:inputText class="form-control" id="login" value="#{usuarioController.selected.login}" title="#{bundle.CreateUsuarioTitle_login}" />
+                    <h:outputLabel class="list-group" value="#{bundle.CreateUsuarioLabel_senha}" for="senha" />
+                    <h:inputText class="form-control" id="senha" value="#{usuarioController.selected.senha}" required="true" title="#{bundle.CreateUsuarioTitle_senha}" requiredMessage="O campo Senha é obrigatório!"/>
+                    <h:outputLabel class="list-group" value="#{bundle.CreateUsuarioLabel_email}" for="email" />
+                    <h:inputText class="form-control" id="email" value="#{usuarioController.selected.email}" title="#{bundle.CreateUsuarioTitle_email}" />
+                    
+                  
+                </h:panelGrid>
+                <br />
+                <h:commandLink class="btn btn-primary" action="#{usuarioController.create}" value="Salvar" />
+               
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
